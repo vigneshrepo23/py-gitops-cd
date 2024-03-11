@@ -6,7 +6,7 @@ pipeline {
         IMAGE_NAME = "${DOCKER_USERNAME}" + "/" + "${APP_NAME}"
         IMAGE_TAG = "${BUILD_NUMBER}"
         DOCKER_CRED = "dockertoken"
-        GITURL = "https://github.com/vigneshrepo23/py-gitops-ci.git"
+        GITURL = "https://github.com/vigneshrepo23/py-gitops-cd.git"
     }
     stages {
         stage ('cleanup ws') {
@@ -16,7 +16,7 @@ pipeline {
         }
         stage ('checkout') {
             steps {
-                git branch: 'main', url: 'https://github.com/vigneshrepo23/py-gitops-ci.git'
+                git branch: 'main', url: 'https://github.com/vigneshrepo23/py-gitops-cd.git'
             }
         }
         stage ("update k8s deploy manifest") {
